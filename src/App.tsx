@@ -123,8 +123,8 @@ function App() {
             <div className='flex content-center items-center justify-between max-w-[33.75rem] flex-grow mb-[2.5rem] mx-auto'>
               <h1 className='text-[1.25rem] sm:text-[2.5rem] text-white font-bold tracking-[.9375rem]'>TODO</h1>
               {isSignedIn ? <div className='flex content-center items-center gap-[1rem] ml-auto mr-[1.5rem]'><ButtonEvent onClickHandler={onHistorySelected} text={isHistory ? "Today" : "History"}/> <ButtonEvent onClickHandler={logUserOut} text='Logout'/></div> : null} 
-              <button className='cursor-pointer' onClick={darkModeChangeHandler}>
-                <img src={`${isDarkMode ? "images/icon-sun.svg" : "images/icon-moon.svg"}`} alt="" className={``}/>
+              <button className='cursor-pointer' onClick={darkModeChangeHandler} aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}>
+                <img src={`${isDarkMode ? "images/icon-sun.svg" : "images/icon-moon.svg"}`} alt="" aria-hidden="true" className={``}/>
               </button>
             </div>
             {
