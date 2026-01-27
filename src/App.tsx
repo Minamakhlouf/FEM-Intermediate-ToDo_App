@@ -51,8 +51,8 @@ function App() {
     setIsDarkMode((prevMode) => { return !prevMode})
   }
 
-  const backgroundMobile = isDarkMode ? `bg-[url("/images/bg-mobile-dark.jpg")]` : `bg-[url("/images/bg-mobile-light.jpg")]`
-  const backgroundDesktop = isDarkMode ? `sm:bg-[url("/images/bg-desktop-dark.jpg")]` : `sm:bg-[url("/images/bg-desktop-light.jpg")]`
+  const backgroundMobile = isDarkMode ? `bg-[url("/images/bg-mobile-dark.webp")]` : `bg-[url("/images/bg-mobile-light.webp")]`
+  const backgroundDesktop = isDarkMode ? `sm:bg-[url("/images/bg-desktop-dark.webp")]` : `sm:bg-[url("/images/bg-desktop-light.webp")]`
 
   const logUserOut = () => {
     setIsSignedIn(false); 
