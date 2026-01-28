@@ -1,11 +1,10 @@
 import './App.css'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, lazy, Suspense } from 'react'
 import SignIn from "./components/SignIn"; 
 import { auth, db  } from "./firebase"
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { addDoc, collection, onSnapshot, serverTimestamp, getDocs, query, where, orderBy} from "firebase/firestore"; 
 import ToDoContainer from './components/ToDoContainer';
-import History from './components/History';
 import ButtonEvent from './components/ButtonEvent';
 import type { TodoData, Todo } from './sharedTypes';
 
@@ -15,6 +14,8 @@ function App() {
   const [toDoArray, setToDoArray] = useState<Todo[]>([]); 
   const [isHistory, setIsHistory] = useState(false); 
   const [authLoading, setAuthLoading] = useState(true)
+
+  const History = lazy(() => import("./components/History"))
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", isDarkMode);
@@ -140,7 +141,9 @@ function App() {
             !isSignedIn ? 
             <SignIn/> : 
             isHistory ? 
-            <History onExitHistory={onExitHistory}/> :
+            <Suspense fallback={<div>Loading...</div>}>
+              <History onExitHistory={onExitHistory}/>
+            </Suspense> :
             <ToDoContainer todos={toDoArray} setTodos={setToDoArray}/> 
             }
             </div>
