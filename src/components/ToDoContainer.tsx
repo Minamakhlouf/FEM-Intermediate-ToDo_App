@@ -134,7 +134,7 @@ const ToDoContainer = ({todos, setTodos}: ToDoContainerProps) => {
                 </div>
             </div>
         </section>
-        <div className="text-center text-[.875rem]">Drag and Drop: {currentView === "All" ? <span className="text-[#3A7CFD] text-[.875rem] font-semibold">Enabled</span> : <span className="text-[#3A7CFD] text-[.875rem] font-semibold">Disabled</span>}</div>
+        <div className="text-center text-[.875rem]"><span className="text-sm">Drag and Drop: </span> {currentView === "All" ? <span className="text-[#3A7CFD] text-[.875rem] font-semibold">Enabled</span> : <span className="text-[#3A7CFD] text-[.875rem] font-semibold">Disabled</span>}</div>
         {
             pendingToDoDeletion && 
             <Modal

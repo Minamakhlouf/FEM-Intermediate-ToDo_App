@@ -30,7 +30,7 @@ const Modal = ({stateValue, confirmAction, updateState}: ModalProps) => {
             <div className={`bg-white p-[6rem] text-center max-w-lg`}>
                 <h2 className="text-3xl mb-[1rem]">Are you sure?</h2>
                 <p className="mb-[1.5rem]">{msg}</p>
-                <div>
+                <div className="flex gap-[.5rem] justify-center">
                     <ButtonEvent text="Delete it" onClickHandler={onConfirmDeletion}/>
                     <ButtonEvent text="Never mind" onClickHandler={() => {updateState("")}}/>
                 </div>
